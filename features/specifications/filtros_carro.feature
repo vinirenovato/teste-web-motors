@@ -8,11 +8,13 @@ Funcionalidade: Fazer filtros na página de resultados da busca.
   modelo, marca e versão
 
   @sucesso
-   Cenario: Fazer filtro por modelo, marca e versão
+  Cenario: Fazer filtro por modelo, marca e versão
 
     Dado que estou na tela inicial do site
     E eu clico em ver ofertas
-    Quando eu faço determinados filtros
-      | modelo | marca | versão                                   |
-      | city   | honda | HONDA CITY 1.5 DX 16V FLEX 4P AUTOMÁTICO |
+    Quando eu faço filtros por marca, modelo e versão
+      | marca | modelo |
+      | honda | city   |
     Então o resultado é apresentado na tela
+
+
