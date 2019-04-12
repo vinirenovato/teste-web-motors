@@ -1,17 +1,18 @@
-Dado("filtro por loja") do
+Dado("eu filtro por loja") do
   @search_page = SearchPage.new
-  @search_page.store_checkbox.click
-  sleep(5)
+  page.evaluate_script("document.querySelector('.Checkbox #nao').click()")
 end
 
-Quando("clico em qualquer resultado") do
-  pending # Write code here that turns the phrase above into concrete actions
+Quando("eu clico em qualquer resultado") do
+  @search_page.click_random_car_result
 end
 
-Quando("clico em ver estoque da loja") do
-  pending # Write code here that turns the phrase above into concrete actions
+Quando("eu clico em ver estoque da loja") do
+  @car_detail_page = CarDetailPage.new
+  @car_detail_page.saler_stock_link.click
 end
 
 Então("sou redirecionado para página dr estoque daquela loja") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_css('.title-search')
 end
+
