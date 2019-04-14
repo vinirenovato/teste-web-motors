@@ -7,17 +7,6 @@ class SearchPage < SitePrism::Page
   elements :car_version_options, '.Filters__line.Filters__line__result'
   element :store_checkbox, 'main.page.page--search div.container div.Search-result.Search-result--container-left:nth-child(2) div.Filters__container__scroll div.Filters__container__group:nth-child(5) div.Form__InputRow:nth-child(3) > label.Checkbox'
   elements :cars_results, '.PhotoSlider'
-  def choose_car_by_model modelo
-    car_model_option.each do |el|
-      puts 'entrei no for'
-      found_name = el.text.downcase
-      if found_name.include? modelo.downcase
-        puts 'entrei no if'
-        el.click
-        break
-      end
-    end
-  end
 
   def click_random_car_result
     cars_results[rand(0..cars_results.length)].click
@@ -28,9 +17,12 @@ class SearchPage < SitePrism::Page
     car_version_options[rand(0..car_version_options.length)].click
   end
 
-  def result_search_is_visible
-    expect(page).to have_css('.title-search')
+  def click_on_filters
+    car_brand_honda.click
+    car_model_icon.click
+    car_model_options.click
+    car_version_icon.click
+    click_random_car_version
   end
-
 
 end

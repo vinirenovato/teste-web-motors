@@ -9,14 +9,12 @@ Funcionalidade: Fazer filtros na página de resultados da busca.
   Fazer filtros na página dos resultados da busca com opções de:
   modelo, marca e versão
 
-  @filtros
+  @filters
   Cenario: Fazer filtro por modelo, marca e versão
 
     Dado que estou na tela inicial do site
     E eu clico em ver ofertas
-    Quando eu faço filtros por marca, modelo e versão
-      | marca | modelo |
-      | honda | city   |
+    Quando eu faço filtros pela marca honda, modelo city e qualquer versão
     Então o resultado é apresentado na tela
 
 
